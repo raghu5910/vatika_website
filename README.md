@@ -1,3 +1,4 @@
+
 ## Getting started
 - Install npm 
   - npm is a default packet manager for [Node.js](https://nodejs.org/en/download/), so by installing nodejs you get npm 
@@ -13,16 +14,28 @@ $ pip install -r requirements.txt
 
 ### Creating virtual environment
 - If python distribution is official
+# vatika_website
+Software Engineering project
+
+# Getting started
+
+### Creating a virtual environment
+
+- If python distribution is official
+
+
 ```
 $ pip install virtualenv
 $ virtualenv environment_name
 $ source environment_name/bin/activate
 ```
+
 - If python distribution is Anaconda
 ```
 $ conda create --name environment_name
 $ activate environment_name
 ```
+
 ### Running Server
 
 - To run frontend app i.e reactjs app
@@ -44,3 +57,6 @@ $ python manage.py runserver react
 
 
 
+
+### Installing requirements
+```pip install -r requirements.txt```
