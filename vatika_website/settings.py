@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7^n0czjb8jx*t_stj9q822n=6(+3%kl1^7a*sp)#di@o4dc+i2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['raghuparedla.pythonanywhere.com',"127.0.0.1"]
 
@@ -124,16 +124,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_FINDERS = [
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    ]
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/home/raghuparedla/vatika_website/static'
+STATIC_ROOT = '/static' # During development when you applied collectstatic
+# STATIC_ROOT = '/home/raghuparedla/vatika_website/static' # During Production
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
