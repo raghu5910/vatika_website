@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block stylesheet %}
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
   <!-- <link src="{% static 'js/gmap.js' %}"> -->
@@ -45,46 +46,10 @@
             </div>
       </div>
       <div class="col-lg-8">
-        <form class="form-area contact-form text-right" id="myForm" method="post">
+        <form  method="post">
           {% csrf_token %}
-          <div class="row">
-            <div class="col-lg-6 form-group">
-              <div class="fieldWrapper">
-                  {{ form.name.errors }}
-                  {{ form.name }}
-                  {% if form.name.help_text %}
-                  <p class="help">{{ form.name.help_text|safe }}</p>
-                  {% endif %}
-              </div>
-              <div class="fieldWrapper">
-                  {{ form.email.errors }}
-                  {{ form.email }}
-                  {% if form.email.help_text %}
-                  <p class="help">{{ form.email.help_text|safe }}</p>
-                  {% endif %}
-              </div>
-              <div class="fieldWrapper">
-                  {{ form.contact.errors }}
-                  {{ form.contact }}
-                  {% if form.contact.help_text %}
-                  <p class="help">{{ form.contact.help_text|safe }}</p>
-                  {% endif %}
-              </div>
-            </div>
-            <div class="col-lg-6 form-group">
-              <div class="fieldWrapper">
-                  {{ form.message.errors }}
-                  {{ form.message }}
-                  {% if form.message.help_text %}
-                  <p class="help">{{ form.message.help_text|safe }}</p>
-                  {% endif %}
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="alert-msg" style="text-align: left;"></div>
-              <button class="genric-btn primary" style="float: right;">Send Message</button>
-            </div>
-          </div>
+          {{ form|crispy }}
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button
         </form>
       </div>
     </div>

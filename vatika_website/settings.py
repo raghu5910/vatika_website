@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7^n0czjb8jx*t_stj9q822n=6(+3%kl1^7a*sp)#di@o4dc+i2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['raghuparedla.pythonanywhere.com']
 
 
 # Application definition
@@ -129,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/raghuparedla/vatika_website/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
@@ -144,8 +145,8 @@ AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
 )
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='119209459564-12ksk30pth9smp4elnt98vnolmpmjbbj.apps.googleusercontent.com'  #Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '-pu6j-el729og1tW0TuUsWdu' #Paste Secret Keys
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='669850067631-itgjolvm8n3a02m0clgi226hdcc483mf.apps.googleusercontent.com'  #Paste CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'h5Yw_9gvDRV1CM7wA60y4tBM' #Paste Secret Keys
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_HOST = 'smtp-mail.outlook.com.'

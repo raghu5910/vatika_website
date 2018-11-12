@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import BookTable, BookLawn
-from django.views.generic import (TemplateView,ListView,CreateView)
+from django.views.generic import (TemplateView,CreateView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import BookTableForm, BookLawnForm
 from django.core.mail import send_mail
@@ -57,17 +57,21 @@ def reserve_table(request):
     return render(request,'Table/booktable_form.html',{'form':form})
 
 
-class CreateLawn(LoginRequiredMixin, CreateView):
-    model = BookLawn
-    form_class = BookLawnForm
-    template_name = 'Table/booklawn_form.html'
+@login_required
+def reserve_lawn(request):
+    if request.method == 'POST':
+        form = BookLawnForm(request.POST)
 
-    def form_valid(self, form):
-        table = form.save(commit=False)
-        form.instance.booked_by = self.request.user
-        send_mail('Village Vatiki','Hello, from Village Vatika.Your booking is confirmed','Raghu5910@outlook',['raghuram5910@gmail.com'],fail_silently=True)
-        message.success(request, f'Table booked for the {self.request.user}!')
-        return super(CreateLawn, self).form_valid(form)
+        if form.is_valid():
+            table = form.save(commit=False)
+            table.booked_by = request.user
+            table.save()
+            messages.success(request, f'We received your request, we will reach you shortly')
+            return redirect('home:home-page')
+    else:
+        form = BookLawnForm()
+
+    return render(request,'Table/booklawn_form.html',{'form':form})
 
 class TableListView(LoginRequiredMixin, TemplateView):
     template_name = 'Table/booking_list.html'
@@ -81,5 +85,6 @@ class TableListView(LoginRequiredMixin, TemplateView):
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def AdminTableList(request):
-    query1 = BookTable.objects.filter(date__gte=datetime.date.today()).order_by('date')
-    return render(request,'Table/tables.html',{'query1':query1})
+    query1 = BookTable.objects.filter(date__gte=dt.date.today()).order_by('date')
+    query2 = BookLawn.objects.all()
+    return render(request,'Table/tables.html',{'query1':query1,'query2':query2})
