@@ -43,6 +43,8 @@ def reserve_table(request):
             print(query2)
             if query1 < 2 and query2 < 6:
                 table.save()
+                send_mail('Village Vatiki','Hello, from Village Vatika.Your booking is confirmed','contact@villagevatika.co.in',[request.user.email],fail_silently=True)
+
                 messages.success(request, f'Table reserved for {request.user}!, you will receive confirmation mail shortly!')
                 return redirect('home:home-page')
             elif query1 >= 2:

@@ -151,7 +151,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_HOST = 'smtp-mail.outlook.com.'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Raghu5910@outlook.com'
-EMAIL_HOST_PASSWORD = 'imvirat@18'
+EMAIL_HOST_USER = 'contact@villagevatika.co.in'
+EMAIL_HOST_PASSWORD = 'Villagev@18'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
