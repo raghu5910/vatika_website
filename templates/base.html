@@ -57,7 +57,7 @@
         <div class="row align-items-center justify-content-center d-flex">
             <nav id="nav-menu-container">
               <ul class="nav-menu">
-                <li><a href="{% url "home:home-page" %}">Home</a></li>
+                <li><a  href="{% url "home:home-page" %}">Home</a></li>
                 <li><a href="{% url "menu:menu_list" %}">Menu</a></li>
                 <li><a href="{% url 'home:gallery-page' %}">Gallery</a></li>
                 {% if user.is_authenticated %}

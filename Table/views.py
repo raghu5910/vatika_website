@@ -11,17 +11,6 @@ from datetime import datetime, date, time
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
-# Create your views here.
-# class CreateTable(LoginRequiredMixin, CreateView):
-#     model = BookTable
-#     form_class = BookTableForm
-#
-#     def form_valid(self, form):
-#         table = form.save(commit=False)
-#         form.instance.booked_by = self.request.user
-#         send_mail('Village Vatiki','Hello, from Village Vatika.Your booking is confirmed','Raghu5910@outlook',['raghuram5910@gmail.com'],fail_silently=True)
-#         messages.success(self.request, f'Table reserved for {self.request.user}!, you will receive confirmation mail shortly!')
-#         return super(CreateTable, self).form_valid(form)
 
 @login_required
 def reserve_table(request):
@@ -49,10 +38,14 @@ def reserve_table(request):
                 return redirect('home:home-page')
             elif query1 >= 2:
                 messages.success(request, f'You have already reserved two tables for the same date')
-                return redirect('home:home-page')
+                # return redirect('home:home-page')
+                form = BookTableForm()
+                return render(request,'Table/booktable_form.html',{'form':form})
             elif query2 >= 6:
-                messages.success(request, f'Sorry!Tables are full!')
-                return redirect('home:home-page')
+                messages.success(request, f'Sorry!Tables are full for your duration please try +30 minutes!')
+                # return redirect('home:home-page')
+                form = BookTableForm()
+                return render(request,'Table/booktable_form.html',{'form':form})
     else:
         form = BookTableForm()
 

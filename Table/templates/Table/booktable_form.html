@@ -11,23 +11,14 @@
 {% block stylesheet %}
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" href="{% static 'css/timepicker_ass.css' %}">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="https://rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js"></script>
     <script>
       $(function() {
         $( ".datepicker" ).datepicker({
           changeMonth: true,
           changeYear: true,
           yearRange: "1900:2018",
-        });
-      });
-    </script>
-    <script>
-      $(function() {
-        $( ".timepicker" ).timepicker({
-          showPeriodLabels: false,
         });
       });
     </script>
