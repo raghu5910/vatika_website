@@ -145,13 +145,13 @@ AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
 )
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='669850067631-itgjolvm8n3a02m0clgi226hdcc483mf.apps.googleusercontent.com'  #Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'h5Yw_9gvDRV1CM7wA60y4tBM' #Paste Secret Keys
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =''  #Paste CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' #Paste Secret Keys
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_HOST = 'smtp-mail.outlook.com.'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'contact@villagevatika.co.in'
-EMAIL_HOST_PASSWORD = 'Villagev@18'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
